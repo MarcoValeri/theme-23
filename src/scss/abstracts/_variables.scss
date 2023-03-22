@@ -1,1 +1,41 @@
 //Typography
+$black: #000;
+$l-100: #1c1f2f;
+$red: #f00;
+
+$white: #fff;
+$d-100: #fcfcfd;
+
+$palettes: (
+    black: (
+        1: $black,
+        2: $l-100,
+    ),
+    white: (
+        1: $white,
+    ),
+);
+
+// Dark and Light mode
+.dark {
+    background-color: $l-100;
+    color: $d-100;
+}
+
+.light {
+    background-color: $d-100;
+    color: $l-100;
+}
+
+// Root
+// :root,
+// :root.dark {
+//     --color-bc: #{$l-100};
+//     --color-f: #{$d-100};
+// }
+
+// :root.light {
+//     --color-bc: #{$d-100};
+//     --color-f: #{$l-100};
+// }
+

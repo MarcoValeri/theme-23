@@ -11,6 +11,6 @@ use A\Component;
     <link rel="stylesheet" href="https://use.typekit.net/wef8zrv.css">
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('dark'); ?>>
     <?php wp_body_open(); ?>
     <?= Component::render('components/layout/navigation/navigation'); ?>
