@@ -1,0 +1,12 @@
+{
+    "name": "acf/guides",
+    "title": "Guides",
+    "description": "Guides block",
+    "category": "formatting",
+    "icon": "image-filter",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": ["A\\Component", "renderBlocks"]
+    },
+    "align": "full"
+}

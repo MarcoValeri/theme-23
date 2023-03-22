@@ -1,0 +1,9 @@
+.main {
+    display: block !important;
+}
+
+.guides {
+    &__col {
+        border: 1px solid #fff;
+    }
+}
