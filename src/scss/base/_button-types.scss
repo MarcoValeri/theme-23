@@ -1,0 +1,277 @@
+.button {
+    @extend %text-menu;
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem 4rem;
+    border-radius: 2.7rem;
+
+    &--solid,
+    &--solid-white,
+    &--outline,
+    &--outline-white,
+    &--outline-grey {
+        overflow: hidden;
+
+        @include interact() {
+            color: color('white', '1');
+
+            &::before {
+                transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+                transition: transform .2s cubic-bezier(.1, 0, .3, 1);
+            }
+
+            &::after {
+                transform: translate3d(0, 0, 0);
+                transition-delay: .4s;
+                transition-duration: .05s;
+                transition-timing-function: linear;
+            }
+
+            span {
+                animation: lightMoveScaleUpInitial .2s forwards, lightMoveScaleUpEnd .2s forwards .2s;
+            }
+        }
+
+        &::before,
+        &::after {
+            @include pseudo;
+        }
+
+        &::before {
+            top: -110%;
+            left: -10%;
+            width: 120%;
+            height: 0;
+            padding-bottom: 120%;
+            border-radius: 50%;
+            transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+        }
+
+        &::after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translate3d(0, -100%, 0);
+            transition: transform .2s cubic-bezier(.1, 0, .3, 1);
+        }
+
+        span {
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        // Turn off hover effect for arrow buttons
+        &.button--arrow,
+        &.button--arrow-down {
+            &::before,
+            &::after {
+                display: none;
+            }
+
+            span {
+                animation: none;
+            }
+        }
+    }
+
+    &--solid {
+        background-color: color('navy', '1');
+        color: color('white', '1');
+
+        &::before,
+        &::after {
+            background-color: color('purple', '1');
+        }
+    }
+
+    &--solid-white {
+        background-color: color('white', '1');
+        color: color('navy', '1');
+
+        &::before,
+        &::after {
+            background-color: color('purple', '1');
+        }
+
+        /* Keep text navy blue on hover when combined with
+        arrow buttons*/
+        &.button--arrow,
+        &.button--arrow-down {
+            @include interact {
+                color: color('navy', '1');
+            }
+        }
+    }
+
+    &--outline,
+    &--outline-white,
+    &--outline-grey {
+        /* Border removed and padding increased by 2px on hover
+        to address weird gap between border and pseudo*/
+        @include interact {
+            padding: 1.5rem 4rem;
+            border: 0;
+        }
+
+        &.button--arrow,
+        &.button--arrow-down {
+            @include interact {
+                /* Ensure padding stays reduced by 2px on each side
+                to account for border  */
+                padding: 1.3rem 3.8rem;
+            }
+
+            // Remove animated pseudo on arrow buttons
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+
+        &.button--large {
+            //padding reduced by 2px on each side to account for border
+            padding: 3.1rem 5.7rem 3.2rem 5.6rem;
+
+            @include interact {
+                padding: 3.3rem 5.9rem 3.4rem 5.8rem;
+                border: 0;
+            }
+        }
+    }
+
+    &--outline {
+        // padding reduced by 2px on each side to account for border
+        padding: 1.3rem 3.8rem;
+        border: 2px solid color('navy', '1');
+        background-color: transparent;
+        color: color('navy', '1');
+
+        &::before,
+        &::after {
+            background-color: color('navy', '1');
+        }
+
+        &.button--arrow,
+        &.button--arrow-down {
+            @include interact() {
+                // Ensure border stays the same for arrow buttons
+                border: 2px solid color('navy', '1');
+                // Ensure text color stays the same for arrow buttons
+                color: color('navy', '1');
+            }
+        }
+    }
+
+    &--outline-white {
+        //padding reduced by 2px on each side to account for border
+        padding: 1.3rem 3.8rem;
+        border: 2px solid color('white', '1');
+        background-color: transparent;
+        color: color('white', '1');
+
+        @include interact {
+            color: color('navy', '1');
+        }
+
+        &::before,
+        &::after {
+            background-color: color('white', '1');
+        }
+
+        &.button--arrow,
+        &.button--arrow-down {
+            @include interact() {
+                // Ensure border stays the same for arrow buttons
+                border: 2px solid color('white', '1');
+                // Ensure text color stays the same for arrow buttons
+                color: color('white', '1');
+            }
+        }
+    }
+
+    &--outline-grey {
+        //padding reduced by 2px on each side to account for border
+        padding: 1.3rem 3.8rem;
+        border: 2px solid color('grey', '2');
+        background-color: transparent;
+        color: color('grey', '2');
+
+        @include interact {
+            color: color('navy', '1');
+        }
+
+        &::before,
+        &::after {
+            background-color: color('grey', '2');
+        }
+
+        &.button--arrow,
+        &.button--arrow-down {
+            @include interact() {
+                // Ensure border stays the same for arrow buttons
+                border: 2px solid color('grey', '2');
+                // Ensure text color stays the same for arrow buttons
+                color: color('grey', '2');
+            }
+        }
+    }
+
+    &--naked,
+    &--naked-grey {
+        padding: 0 1rem 0 0;
+        background-color: transparent;
+    }
+
+    &--naked {
+        color: color('navy', '1');
+
+        @include interact() {
+            color: color('navy', '1');
+        }
+    }
+
+    &--naked-grey {
+        color: color('grey', '2');
+
+        @include interact() {
+            color: color('grey', '2');
+        }
+    }
+
+    &--large {
+        padding: 3.3rem 5.9rem 3.4rem 5.8rem;
+        border-radius: 5rem;
+    }
+
+    &--arrow {
+        @include interact() {
+            svg {
+                transform: translateX(1rem);
+                transition: transform .3s ease-in-out;
+            }
+        }
+
+        svg {
+            margin: 7px 0 4px 1rem;
+            transform: translateX(0);
+            transition: transform .3s ease-in-out;
+        }
+    }
+
+    &--arrow-down {
+        @include interact() {
+            svg {
+                transform: translateY(3px);
+                transition: transform .3s ease-in-out;
+            }
+        }
+
+        svg {
+            margin: 0 0 0 1rem;
+            transform: translateY(0);
+            transition: transform .3s ease-in-out;
+        }
+    }
+}

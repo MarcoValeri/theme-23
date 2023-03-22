@@ -1,0 +1,12 @@
+{
+    "name": "acf/sample",
+    "title": "Sample",
+    "description": "Sample block",
+    "category": "formatting",
+    "icon": "image-filter",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": ["A\\Component", "renderBlocks"]
+    },
+    "align": "full"
+}

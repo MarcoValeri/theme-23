@@ -1,0 +1,9 @@
+.button {
+    @include make-buttons($buttons);
+
+    @each $type, $values in $button-types {
+        &--#{$type} {
+            @include make-buttons($values);
+        }
+    }
+}

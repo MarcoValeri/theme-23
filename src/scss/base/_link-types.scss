@@ -1,0 +1,138 @@
+.link {
+    display: inline-block;
+    background-color: transparent;
+    color: color('navy', '1');
+
+    @include interact {
+        color: color('navy', '1');
+    }
+
+    &--purple,
+    &--pink {
+        position: relative;
+        z-index: 0;
+        padding: 0 .5rem;
+        line-height: 1.1;
+
+        &::after {
+            @include pseudo;
+            z-index: -1;
+            bottom: 0;
+            left: 50%;
+            width: 100%;
+            height: .5rem;
+            transform: translateX(-50%);
+            transition: transition(height);
+        }
+
+        &:hover::after {
+            height: 2.2rem;
+        }
+    }
+
+    &--purple {
+        &::after {
+            background: color('purple', '2');
+        }
+    }
+
+    &--pink {
+        &::after {
+            background: color('pink', '2');
+        }
+    }
+
+    &--xl {
+        @include typography(2.3rem, 3rem, $sofia);
+        font-weight: 600;
+    }
+
+    &--social {
+        position: relative;
+        overflow: hidden;
+        width: 4.6rem;
+        height: 4.6rem;
+        border-radius: 50%;
+        color: color('navy', '1');
+        transition: background-color .4s ease-in-out, color .4s ease-in-out;
+
+        @include interact() {
+            background-color: color('navy', '1');
+            color: color('white', '1');
+            transition: background-color .4s ease-in-out, color .4s ease-in-out;
+
+            &::before {
+                transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+                transition: transform .4s cubic-bezier(.1, 0, .3, 1);
+            }
+
+            &::after {
+                transform: translate3d(0, 0, 0);
+                transition-delay: .4s;
+                transition-duration: .05s;
+                transition-timing-function: linear;
+            }
+
+            svg {
+                animation: lightMoveScaleUpInitial .3s forwards, lightMoveScaleUpEnd .3s forwards .3s;
+            }
+        }
+
+        &::before,
+        &::after {
+            @include pseudo;
+        }
+
+        &::before {
+            top: -110%;
+            left: -10%;
+            width: 120%;
+            height: 0;
+            padding-bottom: 120%;
+            border-radius: 50%;
+            transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+        }
+
+        &::after {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translate3d(0, -100%, 0);
+            transition: transform .4s cubic-bezier(.1, 0, .3, 1);
+        }
+
+        svg {
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+    }
+
+    &--arrow {
+        @include typography(1.8rem, 2.6rem, $sofia);
+        position: relative;
+        font-weight: 700;
+
+        &::after {
+            @include pseudo;
+            top: 0;
+            right: -4rem;
+            bottom: 0;
+            width: 2.5rem;
+            height: 1.5rem;
+            margin: auto;
+            background-image: url('/wp-content/uploads/2021/12/arrow-black.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            transition: transform .2s ease-in-out;
+        }
+
+        &:hover::after {
+            transform: translateX(1rem);
+            transition: transform .2s ease-in-out;
+        }
+    }
+}
+

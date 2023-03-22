@@ -1,0 +1,39 @@
+$aktiv: 'aktiv-grotesk', sans-serif;
+
+%h1 {
+    @include typography(4rem, 4.5rem, $aktiv);
+    font-weight: 400;
+}
+
+%h2 {
+    @include typography(3rem, 3.6rem, $aktiv);
+    font-weight: 400;
+}
+
+%h3 {
+    @include typography(2.4rem, 3.1rem, $aktiv);
+}
+
+%body {
+    @include typography(1.8rem, 2.6rem, $aktiv);
+}
+
+%body-sm {
+    @include typography(1.6rem, 2.4rem, $aktiv);
+}
+
+%nav {
+    @include typography(1.8rem, 2.7rem, $aktiv);
+    font-weight: 500;
+}
+
+%menu-item {
+    @include typography(1.7rem, 2.5rem, $aktiv);
+}
+
+%captions {
+    @include typography(1.4rem, 2.1rem, $aktiv);
+}
+
+$headings: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body');
+$custom-headings: ('body-sm', 'nav', 'menu-item', 'captions');
