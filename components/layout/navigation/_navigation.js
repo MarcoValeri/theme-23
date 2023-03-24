@@ -29,5 +29,4 @@ export default function() {
         // Dark and Light Icon
         showsAndHidesImage('navigation-dark-light', '/wp-content/uploads/2023/03/sun.svg', '/wp-content/uploads/2023/03/moon.svg');
     })
-    console.log(`navigation.js`);
 }

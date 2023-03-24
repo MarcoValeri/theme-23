@@ -4,6 +4,23 @@
 
 .guides {
     &__col {
-        border: 1px solid #fff;
+        padding-top: 4rem;
+        padding-left: 2.4rem;
+        border-right: 1px solid $d-100;
+        border-bottom: 1px solid $d-100;
+    }
+
+    &__content-list {
+        margin-top: 1.2rem;
+        margin-bottom: 4rem;
+    }
+
+    &__list {
+        margin-bottom: 1.6rem;
+        margin-left: 2rem;
+    }
+
+    &__list-mark {
+        color: $d-blue-100;
     }
 }

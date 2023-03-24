@@ -5,13 +5,21 @@ $l-100: #1c1f2f;
 $white: #fff;
 $d-100: #fcfcfd;
 
+$d-blue-100: #7d9cfc;
+$l-blue-100: #406efb;
+
 $palettes: (
     black: (
         1: $black,
         2: $l-100,
     ),
+    blue: (
+        1: $d-blue-100,
+        2: $l-blue-100
+    ),
     white: (
         1: $white,
+        2: $d-100,
     ),
 );
 
