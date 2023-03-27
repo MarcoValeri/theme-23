@@ -25,7 +25,7 @@ $getAllCategories = get_categories($categoriesArgs);
                             // Print out category name
                             ?>
                             <h2 class="body"><?= $categoryTitle; ?></h2>
-                            <ul class="guides__content-list">
+                            <ul id="guides-sidebar-menu" class="guides__content-list">
                             <?php
                             // Query the posts related to the above category
                             $guidesArgs = [

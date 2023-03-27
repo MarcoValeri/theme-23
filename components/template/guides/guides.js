@@ -8,7 +8,15 @@ export default function() {
     fetch(urlGuides)
         .then(res => res.json())
         .then(guides => {
-            console.log(guides);
+            const guidesSidebar = document.querySelectorAll('#guides-sidebar-menu');
+            guidesSidebar.forEach((elements, items) => {
+                let guideGroup = elements.querySelectorAll("li");
+                console.log(typeof guideGroup);
+                // guideGroup.forEach((element, item) => {
+                //     let guide = element.querySelector("li");
+                //     console.log(guide);
+                // })
+            })
         })
         .catch(err => console.log(err));
 
